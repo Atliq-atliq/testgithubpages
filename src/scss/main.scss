@@ -8,6 +8,10 @@ $warning:#f3f32d;
 $light:#f9f9f9;
 $dark:#121212;
 
+$dev1:#222222;
+$dev2: #222222;
+$dev3: #222222;
+
 
 $theme-colors: (
     "primary": $primary,
@@ -17,7 +21,10 @@ $theme-colors: (
     "danger": $danger,
     "warning": $warning,
     "light": $light,
-    "dark": $dark
+    "dark": $dark,
+    "dev1":$dev1,
+    "dev2":$dev2,
+    "dev3":$dev3,
 );
 
 // Create your own map
@@ -31,13 +38,15 @@ $custom-colors: (
 // Merge the maps
 // $theme-colors: map-merge($theme-colors, $custom-colors);
 
-
-@each $color,
-$value in $theme-colors {
-    .swatch-#{$color} {
-        color: color-contrast($value);
-    }
+@function theme-color($key){
+    @return map-get($theme-colors, $key );
 }
+// @each $color,
+// $value in $theme-colors {
+//     .swatch-#{$color} {
+//         color: color-contrast($value);
+//     }
+// }
 
 $color: aqua;
 
